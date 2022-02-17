@@ -39,7 +39,6 @@ fn view(app: &App, _model: &Model, frame: Frame) {
 }
 
 fn captured_frame_path(app: &App, frame: &Frame) -> std::path::PathBuf {
-    // Create a path that we want to save this frame to.
     // capture all the frames to a directory outside of the current crate
     Path::new("../sketch_frames")
         .join(app.exe_name().unwrap())
