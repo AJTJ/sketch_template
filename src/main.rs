@@ -33,14 +33,15 @@ fn view(app: &App, _model: &Model, frame: Frame) {
     // DRAW TO FRAME
     draw.to_frame(app, &frame).unwrap();
 
-    // CAPTURE FRAME
-    let file_path = captured_frame_path(app, &frame);
-    app.main_window().capture_frame(file_path);
+    // CAPTURE FRAME (takes lots of space, so only use when desired)
+    // let file_path = captured_frame_path(app, &frame);
+    // app.main_window().capture_frame(file_path);
 }
 
 fn captured_frame_path(app: &App, frame: &Frame) -> std::path::PathBuf {
     // capture all the frames to a directory outside of the current crate
-    Path::new("../sketch_frames")
+    Path::new("../frames_nannou")
+        // save the dir as the folder name, or alternatively use a unique name
         .join(app.exe_name().unwrap())
         // Name each file after the number of the frame.
         .join(format!("{:03}", frame.nth()))
